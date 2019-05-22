@@ -1,5 +1,6 @@
 package com.chen.cooltest;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
@@ -129,6 +130,11 @@ public class Weatherctivity extends AppCompatActivity {
 
 
     private void showWeatherInfo(Weather weather){
+        if (weather != null && "ok".equals(weather.status)){
+            Intent intent = new Intent(this, AutoUpdateService.class);
+            startService(intent);
+        }
+
         String cityName = weather.basic.cityName;
         String updateTime = weather.basic.update.updateTime.split(" ")[1];
         String degree = weather.now.temperature + "℃";

@@ -12,7 +12,12 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Weatherctivity"></activity>
+        <service
+            android:name=".AutoUpdateService"
+            android:enabled="true"
+            android:exported="true"></service>
+
+        <activity android:name=".Weatherctivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
